@@ -15,10 +15,10 @@ const Header = () => {
                     <Image width={100} height={100} src='/logo.webp' alt='logo' />
                 </Link>
                 <div className='flex items-center gap-3'>
-                    <Link href={'/'}>
+                    <Link href={'/collections/ghe-cong-thai-hoc'}>
                         <span className='text-[16px] flex justify-center items-center text-[#000000bf] font-bold py-[8px] px-[20px] rounded-xl transition-all hover:text-[#10069f] hover:bg-[#10069f24]'>Ghế công thái học</span>
                     </Link>
-                    <Link href={'/products'}>
+                    <Link href={'/collections/ghe-cong-thai-hoc'}>
                         <span className='text-[16px] flex justify-center items-center text-[#000000bf] font-bold py-[8px] px-[20px] rounded-xl transition-all hover:text-[#10069f] hover:bg-[#10069f24]'>Bàn Epione</span>
                     </Link>
                     <Link href={'/contact'}>
