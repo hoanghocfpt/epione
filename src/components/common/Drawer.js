@@ -2,12 +2,11 @@
 const Drawer = ({isOpen, onClose, children}) => {
   return (
     <>
-      {/* over */}
-      <div onClick={() => onClose(true)} className={`fixed z-50 inset-0 bg-black bg-opacity-50 transition-opacity ${
+      <div onClick={() => onClose(true)} className={`fixed z-[51] inset-0 bg-black bg-opacity-50 transition-opacity ${
         isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}>
       </div>
-      <div className={`z-50 fixed top-0 right-0 h-full bg-white shadow-lg transform transition-transform ${
+      <div className={`z-[51] fixed top-0 right-0 h-full bg-white shadow-lg transform transition-transform ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       } max-w-[375px] w-[calc(100%-50px)] flex flex-col`}>
         <div className='flex justify-between py-[10px] px-[12px] border-b border-[#e5e5e5]'>
