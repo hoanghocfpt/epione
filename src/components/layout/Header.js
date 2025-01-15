@@ -3,8 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Drawer from '../common/CartDrawer';
-
+import SearchDrawer from '../common/SearchDrawer';
 const Header = () => {
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     return (
         <>
@@ -14,6 +15,7 @@ const Header = () => {
                     <span className='text-white text-[14px] hover:underline'>Miễn phí vận chuyển và lắp đặt tại HN và HCM</span>
                 </Link>
             </div>
+            <SearchDrawer isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
             <div className='max-w-screen-2xl sticky top-0 z-50 bg-white mx-auto flex items-center justify-between p-4'>
                 <Link href={'/'}>
                     <Image width={100} height={100} src='/logo.webp' alt='logo' />
@@ -37,7 +39,7 @@ const Header = () => {
                     
                 </div>
                 <div className='flex items-center gap-3'>
-                    <div className='cursor-pointer'>
+                    <div onClick={()=>setIsSearchOpen(true)} className='cursor-pointer'>
                         <svg xmlns="http://www.w3.org/2000/svg" width={32} height={32} className='hover:scale-105' viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><circle cx={11} cy={11} r={6}></circle><path strokeLinecap="round" d="m20 20l-3-3"></path></g></svg>
                     </div>
                     <Link href={'/account'}>

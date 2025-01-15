@@ -1,10 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const CartDrawer = ({isOpen, onClose, children}) => {
-    // const [carts, setCarts] = useState([]);
-    
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }, [isOpen]);
     return (
         <>
             <div onClick={() => onClose(true)} className={`fixed z-[51] inset-0 bg-black bg-opacity-50 transition-opacity ${
@@ -145,7 +150,7 @@ const CartDrawer = ({isOpen, onClose, children}) => {
                     </div>
                 </div>
             </div>
-            </>
+        </>
     );
 };
 
