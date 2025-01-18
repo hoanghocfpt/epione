@@ -1,8 +1,11 @@
 'use client'
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation } from 'swiper/modules';
 import 'swiper/css';
+
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
 
 const ProductImages = () => {
     const data = [
@@ -22,10 +25,24 @@ const ProductImages = () => {
             swiperRef2.current.slideTo(index, 500);
         }
     };
+    useEffect(() => {
+        let lightbox = new PhotoSwipeLightbox({
+          gallery: '#gallery',
+          children: 'a',
+          pswpModule: () => import('photoswipe'),
+        });
+        lightbox.init();
+    
+        return () => {
+          lightbox.destroy();
+          lightbox = null;
+        };
+      }, []);
     return (
         <div className='sticky top-[72px] bg-white h-fit'>
             <div className='relative flex items-center'>
                 <Swiper
+                    id='gallery'
                     spaceBetween={0}
                     slidesPerView={1}
                     onSlideChange={() => {
@@ -40,7 +57,16 @@ const ProductImages = () => {
                     >
                     {data.map((item, index) => (
                         <SwiperSlide key={index}>
-                            <img className='w-full h-full object-cover' src={item} alt={item} />
+                            <a
+                                href={item}
+                                data-pswp-width={1601}
+                                data-pswp-height={1201}
+                                // key={props.galleryID + '-' + index}
+                                target="_blank"
+                                rel="noreferrer"
+                                >
+                                <img className='w-full h-full object-cover' src={item} alt={item} />
+                            </a>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -88,6 +114,20 @@ const ProductImages = () => {
                     ))}
                 </Swiper>
             </div>
+            {/* <div className="pswp-gallery" id={props.galleryID}>
+                {props.images.map((image, index) => (
+                    <a
+                    href={image.largeURL}
+                    data-pswp-width={image.width}
+                    data-pswp-height={image.height}
+                    key={props.galleryID + '-' + index}
+                    target="_blank"
+                    rel="noreferrer"
+                    >
+                    <img src={image.thumbnailURL} alt="" />
+                    </a>
+                ))}
+            </div> */}
         </div>
     );
 };

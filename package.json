@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "next": "15.1.3",
+    "photoswipe": "^5.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "swiper": "^11.2.1"
+    "swiper": "^11.2.1",
+    "use-debounce": "^10.0.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
