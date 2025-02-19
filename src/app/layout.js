@@ -1,6 +1,7 @@
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import ScrollTop from "@/components/common/ScrollTop";
 
 const nuNitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       >
         <Header />
         {children}
+        <ScrollTop />
       </body>
     </html>
   );
