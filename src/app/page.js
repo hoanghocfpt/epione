@@ -1,15 +1,11 @@
+import Slider from '@/components/page-specific/home/Slider';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
   return (
     <>
-      <div className='max-w-screen-2xl relative px-8 mx-auto'>
-        <div className='blur-lg absolute top-0 left-0 -z-10 w-full h-full'>
-          <Image width={700} height={700} className='w-full' src='/banner-xmas.webp' alt='banner' />
-        </div>
-        <Image width={1000} height={1000} className='w-full translate-y-10 mb-10 rounded-3xl' src='/banner-xmas.webp' alt='banner' />
-      </div>
+      <Slider />
       <div className='max-w-screen-2xl mx-auto px-8 py-10'>
         <h2 className='text-[44px] font-bold text-center mb-6'>Danh mục sản phẩm</h2>
         <div className='grid grid-cols-3 gap-8'>

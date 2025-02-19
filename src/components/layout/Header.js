@@ -18,7 +18,7 @@ const Header = () => {
             <SearchDrawer isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
             <div className='max-w-screen-2xl sticky top-0 z-50 bg-white mx-auto flex items-center justify-between p-4'>
                 <Link href={'/'}>
-                    <Image width={100} height={100} src='/logo.webp' alt='logo' />
+                    <Image width={100} height={30} src='/logo.webp' alt='logo' />
                 </Link>
                 <div className='flex items-center gap-3'>
                     <Link href={'/collections/ghe-cong-thai-hoc'}>
