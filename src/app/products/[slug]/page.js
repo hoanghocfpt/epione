@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import ProductImages from '@/components/page-specific/products/ProductImages';
-const ProductsPage = () => {
-    
+import data from '@/lib/data'
+import Options from '@/components/page-specific/products/Options';
+const ProductsPage = async ({ params }) => {
+    console.log(data);
+    const slug = (await params).slug
+    const product  = data?.products.find(item => item.handle === slug)
+
     return (
         <div>
             <div className='flex items-center py-[8px] max-w-screen-2xl mx-auto px-8 bg-[#f0f0f0]'>
@@ -12,9 +17,9 @@ const ProductsPage = () => {
                 <span className='text-xs text-[#282828]'>Ghế công thái học</span>
             </div>
             <div className='max-w-screen-2xl mx-auto px-8 grid grid-cols-2 gap-[24px] py-8'>
-                <ProductImages />
+                <ProductImages data={product?.images} />
                 <div className='pl-7 py-3'>
-                    <h1 className='text-[#10069f] text-[34px] font-semibold mb-3'>Bàn nâng hạ Epione SmartDesk Lite 2.0</h1>
+                    <h1 className='text-[#10069f] text-[34px] font-semibold mb-3'>{product?.title} ({slug})</h1>
                     <div className='flex items-center gap-1 mb-2'>
                         <div className='flex items-center'>
                             <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24"><path fill="currentColor" d="M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28l-5.29 3.28l1.49 -6.04l-4.76 -4.02l6.21 -0.46Z"></path><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3l-2.35 5.76l-6.21 0.46l4.76 4.02l-1.49 6.04l5.29 -3.28M12 3l2.35 5.76l6.21 0.46l-4.76 4.02l1.49 6.04l-5.29 -3.28"></path></svg>
@@ -26,8 +31,8 @@ const ProductsPage = () => {
                         <span className='text-[#282828]'>8 đánh giá</span>
                     </div>
                     <div className='flex items-center gap-2'>
-                        <span className='text-[#10069f] font-semibold mb-2 text-[26px]'>3.590.000 VND</span>
-                        <span className='text-[#929292] font-medium text-[18px] mb-1 line-through'>2.000.000 VND</span>
+                        <span className='text-[#10069f] font-semibold mb-2 text-[26px]'>{parseInt(product.price.toString().slice(0, -2)).toLocaleString('vi-VN') + ' VND'}</span>
+                        <span className='text-[#929292] font-medium text-[18px] mb-1 line-through'></span>
                     </div>
                     <div className='border flex items-center gap-2 rounded-lg'>
                         <div className='w-full h-[44px] border border-[#10069f] rounded-lg flex justify-center items-center cursor-pointer'>
@@ -39,18 +44,7 @@ const ProductsPage = () => {
                         </div>
                     </div>
                     <div className='flex flex-col gap-5 mt-5'>
-                        <div>
-                            <span className='font-semibold block mb-3'>Màu sắc khung bàn</span>
-                            <div className='flex items-center gap-2'>
-                                <div className='flex relative overflow-hidden items-center gap-2 select-none'>
-                                    <input defaultChecked id="color-black" className='peer hidden' type='radio' name='color' />
-                                    <label htmlFor='color-black' className='peer-checked:after:block after:hidden after:content-["\2714"] after:leading-none overflow-hidden relative after:text-white after:rounded-bl-[50px] after:w-[15px] after:h-[14px] after:absolute after:right-0 after:top-0 after:text-[8px] after:pt-[3px] after:pb-[5px] after:pl-[5px] after:bg-[#10069f] cursor-pointer leading-5 flex items-center gap-2 text tracking-wider py-[8px] px-[12px] rounded-lg peer-checked:text-[#10069f] border peer-checked:border-[#10069f]' >
-                                        <span className='border w-5 h-5 rounded-full bg-black'></span>
-                                        All Black
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        <Options options={product?.options} variants={product?.variants} />
                         <div>
                             <span className='font-semibold block mb-3'>Màu sắc mặt bàn</span>
                             <div className='flex items-center gap-2'>

@@ -7,15 +7,15 @@ import 'swiper/css';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
 
-const ProductImages = () => {
-    const data = [
-        '/ban-nang-ha-epione-smartdesk-lite-20-110457.webp',
-        '/ban-nang-ha-epione-smartdesk-lite-20-220696.webp',
-        '/ban-nang-ha-epione-smartdesk-lite-20-647614.webp',
-        '/ban-nang-ha-epione-smartdesk-lite-20-661700.webp',
-        '/ban-nang-ha-epione-smartdesk-lite-20-749794.webp',
-        '/ban-nang-ha-epione-smartdesk-lite-20-976505.webp',
-    ]
+const ProductImages = ({ data }) => {
+    // const data = [
+    //     '/ban-nang-ha-epione-smartdesk-lite-20-110457.webp',
+    //     '/ban-nang-ha-epione-smartdesk-lite-20-220696.webp',
+    //     '/ban-nang-ha-epione-smartdesk-lite-20-647614.webp',
+    //     '/ban-nang-ha-epione-smartdesk-lite-20-661700.webp',
+    //     '/ban-nang-ha-epione-smartdesk-lite-20-749794.webp',
+    //     '/ban-nang-ha-epione-smartdesk-lite-20-976505.webp',
+    // ]
     const swiperRef = useRef();
     const swiperRef2 = useRef();
     const [thumbnailRef, setThumbnailRef] = useState(0);

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/effect-fade';
-import { EffectFade, Navigation } from 'swiper/modules';
+import { EffectFade, Navigation, Autoplay } from 'swiper/modules';
 // efect fade
 import 'swiper/css';
 const Slider = () => {
@@ -26,12 +26,16 @@ const Slider = () => {
                 spaceBetween={0}
                 effect={'fade'}
                 slidesPerView={1}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
                 onSwiper={(swiper) => {
                     swiperRef.current = swiper;
                 }}
 
                 navigation={true}
-                modules={[EffectFade, Navigation]}
+                modules={[Autoplay, EffectFade, Navigation]}
                 >
                 {data.map((item, index) => (
                     <SwiperSlide key={index}>
@@ -44,7 +48,7 @@ const Slider = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div onClick={() => swiperRef.current.slidePrev()} className='hidden lg:block border border-[#10069f] select-none w-10 h-10 bg-white group hover:bg-[#10069f] z-40 absolute left-3 transition-all cursor-pointer p-2 rounded-lg'>
+            <div onClick={() => swiperRef.current.slidePrev()} className='hidden lg:block border border-[#10069f] select-none w-10 h-10 bg-white group hover:bg-[#10069f] z-40 absolute top-[300px] left-3 transition-all cursor-pointer p-2 rounded-lg'>
                 <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'>
                     <path
                     className='group-hover:fill-[#fff]'
@@ -55,7 +59,7 @@ const Slider = () => {
                     ></path>
                 </svg>
             </div>
-            <div onClick={() => swiperRef.current.slideNext()} className='hidden lg:block border border-[#10069f] select-none w-10 h-10 bg-white group hover:bg-[#10069f] z-40 absolute right-3 transition-all cursor-pointer p-2 rounded-lg'>
+            <div onClick={() => swiperRef.current.slideNext()} className='hidden lg:block border border-[#10069f] select-none w-10 h-10 bg-white group hover:bg-[#10069f] z-40 absolute top-[300px] right-3 transition-all cursor-pointer p-2 rounded-lg'>
                 <svg className='' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'>
                     <path
                     className='group-hover:fill-[#fff]'

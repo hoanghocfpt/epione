@@ -1,7 +1,7 @@
 import Slider from '@/components/page-specific/home/Slider';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { data } from '@/lib/data'
 export default function Home() {
   return (
     <>
