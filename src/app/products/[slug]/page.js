@@ -2,8 +2,9 @@ import Link from 'next/link';
 import ProductImages from '@/components/page-specific/products/ProductImages';
 import data from '@/lib/data'
 import Options from '@/components/page-specific/products/Options';
+import Information from '@/components/page-specific/products/Information';
+
 const ProductsPage = async ({ params }) => {
-    console.log(data);
     const slug = (await params).slug
     const product  = data?.products.find(item => item.handle === slug)
 
@@ -45,72 +46,6 @@ const ProductsPage = async ({ params }) => {
                     </div>
                     <div className='flex flex-col gap-5 mt-5'>
                         <Options options={product?.options} variants={product?.variants} />
-                        <div>
-                            <span className='font-semibold block mb-3'>Màu sắc mặt bàn</span>
-                            <div className='flex items-center gap-2'>
-                                <div className='flex relative overflow-hidden items-center gap-2 select-none'>
-                                    <input defaultChecked id="classic-black" className='peer hidden' type='radio' name='color2' />
-                                    <label htmlFor='classic-black' className='peer-checked:after:block after:hidden after:content-["\2714"] after:leading-none overflow-hidden relative after:text-white after:rounded-bl-[50px] after:w-[15px] after:h-[14px] after:absolute after:right-0 after:top-0 after:text-[8px] after:pt-[3px] after:pb-[5px] after:pl-[5px] after:bg-[#10069f] cursor-pointer leading-5 flex items-center gap-2 text tracking-wider py-[8px] px-[12px] rounded-lg peer-checked:text-[#10069f] border peer-checked:border-[#10069f]' >
-                                        <span className='border w-5 h-5 rounded-full bg-black'></span>
-                                        Classic Black
-                                    </label>
-                                </div>
-                                <div className='flex relative overflow-hidden items-center gap-2 select-none'>
-                                    <input id="pure-white" className='peer hidden' type='radio' name='color2' />
-                                    <label htmlFor='pure-white' className='peer-checked:after:block after:hidden after:content-["\2714"] after:leading-none overflow-hidden relative after:text-white after:rounded-bl-[50px] after:w-[15px] after:h-[14px] after:absolute after:right-0 after:top-0 after:text-[8px] after:pt-[3px] after:pb-[5px] after:pl-[5px] after:bg-[#10069f] cursor-pointer leading-5 flex items-center gap-2 text tracking-wider py-[8px] px-[12px] rounded-lg peer-checked:text-[#10069f] border peer-checked:border-[#10069f]' >
-                                        <span className='border w-5 h-5 rounded-full bg-white'></span>
-                                        Pure White
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <span className='font-semibold block mb-3'>Kích thước mặt bàn</span>
-                            <div className='flex items-center flex-wrap gap-2'>
-                                <div className='flex relative overflow-hidden items-center gap-2 select-none'>
-                                    <input defaultChecked id="size-1" className='peer hidden' type='radio' name='size' />
-                                    <label htmlFor='size-1' className='peer-checked:after:block after:hidden after:content-["\2714"] after:leading-none overflow-hidden relative after:text-white after:rounded-bl-[50px] after:w-[15px] after:h-[14px] after:absolute after:right-0 after:top-0 after:text-[8px] after:pt-[3px] after:pb-[5px] after:pl-[5px] after:bg-[#10069f] cursor-pointer leading-5 flex items-center gap-2 text tracking-wider py-[8px] px-[12px] rounded-lg peer-checked:text-[#10069f] border peer-checked:border-[#10069f]' >
-                                        {/* <span className='border w-5 h-5 rounded-full bg-black'></span> */}
-                                        1.2m x 0.59m
-                                    </label>
-                                </div>
-                                <div className='flex relative overflow-hidden items-center gap-2 select-none'>
-                                    <input id="size-2" className='peer hidden' type='radio' name='size' />
-                                    <label htmlFor='size-2' className='peer-checked:after:block after:hidden after:content-["\2714"] after:leading-none overflow-hidden relative after:text-white after:rounded-bl-[50px] after:w-[15px] after:h-[14px] after:absolute after:right-0 after:top-0 after:text-[8px] after:pt-[3px] after:pb-[5px] after:pl-[5px] after:bg-[#10069f] cursor-pointer leading-5 flex items-center gap-2 text tracking-wider py-[8px] px-[12px] rounded-lg peer-checked:text-[#10069f] border peer-checked:border-[#10069f]' >
-                                        {/* <span className='border w-5 h-5 rounded-full bg-white'></span> */}
-                                        1.4m x 0.7m
-                                    </label>
-                                </div>
-                                <div className='flex relative overflow-hidden items-center gap-2 select-none'>
-                                    <input id="size-3" className='peer hidden' type='radio' name='size' />
-                                    <label htmlFor='size-3' className='peer-checked:after:block after:hidden after:content-["\2714"] after:leading-none overflow-hidden relative after:text-white after:rounded-bl-[50px] after:w-[15px] after:h-[14px] after:absolute after:right-0 after:top-0 after:text-[8px] after:pt-[3px] after:pb-[5px] after:pl-[5px] after:bg-[#10069f] cursor-pointer leading-5 flex items-center gap-2 text tracking-wider py-[8px] px-[12px] rounded-lg peer-checked:text-[#10069f] border peer-checked:border-[#10069f]' >
-                                        {/* <span className='border w-5 h-5 rounded-full bg-black'></span> */}
-                                        1.6m x 0.7m
-                                    </label>
-                                </div>
-                                <div className='flex relative overflow-hidden items-center gap-2 select-none'>
-                                    <input id="size-4" className='peer hidden' type='radio' name='size' />
-                                    <label htmlFor='size-4' className='peer-checked:after:block after:hidden after:content-["\2714"] after:leading-none overflow-hidden relative after:text-white after:rounded-bl-[50px] after:w-[15px] after:h-[14px] after:absolute after:right-0 after:top-0 after:text-[8px] after:pt-[3px] after:pb-[5px] after:pl-[5px] after:bg-[#10069f] cursor-pointer leading-5 flex items-center gap-2 text tracking-wider py-[8px] px-[12px] rounded-lg peer-checked:text-[#10069f] border peer-checked:border-[#10069f]' >
-                                        {/* <span className='border w-5 h-5 rounded-full bg-white'></span> */}
-                                        1.8m x 0.8m
-                                    </label>
-                                </div>
-                                <div className='flex relative overflow-hidden items-center gap-2 select-none'>
-                                    <input id="size-5" className='peer hidden' type='radio' name='size' />
-                                    <label htmlFor='size-5' className='peer-checked:after:block after:hidden after:content-["\2714"] after:leading-none overflow-hidden relative after:text-white after:rounded-bl-[50px] after:w-[15px] after:h-[14px] after:absolute after:right-0 after:top-0 after:text-[8px] after:pt-[3px] after:pb-[5px] after:pl-[5px] after:bg-[#10069f] cursor-pointer leading-5 flex items-center gap-2 text tracking-wider py-[8px] px-[12px] rounded-lg peer-checked:text-[#10069f] border peer-checked:border-[#10069f]' >
-                                        {/* <span className='border w-5 h-5 rounded-full bg-black'></span> */}
-                                        2m x 0.8m
-                                    </label>
-                                </div>
-                                <div className='flex relative overflow-hidden items-center gap-2 select-none'>
-                                    <input id="size-6" className='peer hidden' type='radio' name='size' />
-                                    <label htmlFor='size-6' className='peer-checked:after:block after:hidden after:content-["\2714"] after:leading-none overflow-hidden relative after:text-white after:rounded-bl-[50px] after:w-[15px] after:h-[14px] after:absolute after:right-0 after:top-0 after:text-[8px] after:pt-[3px] after:pb-[5px] after:pl-[5px] after:bg-[#10069f] cursor-pointer leading-5 flex items-center gap-2 text tracking-wider py-[8px] px-[12px] rounded-lg peer-checked:text-[#10069f] border peer-checked:border-[#10069f]' >
-                                        {/* <span className='border w-5 h-5 rounded-full bg-white'></span> */}
-                                        2.2m x 0.8m
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
                         <div>
                             <table className='w-full border-separate'>
                                 <tbody>
@@ -201,6 +136,7 @@ const ProductsPage = async ({ params }) => {
 
                 </div>
             </div>
+            <Information data={product} />
         </div>
     );
 };
