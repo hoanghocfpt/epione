@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation'
 const Options = ({options, variants}) => {
     const searchParams = useSearchParams()
-    const router = useRouter();
-    const variantq = searchParams.get('variant')
+    const router = useRouter()
      // options
     const [option, setOption] = useState({
         option1: variants[0]?.option1,
@@ -14,7 +13,15 @@ const Options = ({options, variants}) => {
 
     const [variant, setVariant] = useState(null);
     
-    
+    const isOptionAvailable = (position, value) => {
+        const newOption = { ...option, [`option${position}`]: value };
+        return variants.some(v => 
+            v.option1 === newOption.option1 &&
+            v.option2 === newOption.option2 &&
+            v.option3 === newOption.option3 &&
+            v.available
+        );
+    };
     
     const handleOptionChange = (position, value) => {
         setOption({
@@ -34,8 +41,8 @@ const Options = ({options, variants}) => {
     useEffect(() => {
         if(variant){
             const params = new URLSearchParams(searchParams.toString());
-            params.set('variant', variant?.id);
-            router.replace(`?${params.toString()}`);
+            params.set('variant', variant.id);
+            window.history.replaceState({}, '', `?${params.toString()}`);
         }
     }, [variant]);
 
@@ -43,7 +50,7 @@ const Options = ({options, variants}) => {
     console.log(option, variant);
     return (
         <>
-            <div>{variant?.title}</div>
+            <div>{variant?.title} {variant?.price} {variant?.available ? 'Còn hàng' : 'Không còn hàng'}</div>
             {options.map((op, index) => (
                 <div key={index}>
                     <span className='font-semibold block mb-3'>{op?.name}</span>
@@ -52,8 +59,8 @@ const Options = ({options, variants}) => {
                             <div key={index} className='flex relative overflow-hidden items-center gap-2 select-none'>
                                 <input checked={
                                 option[`option${op?.position}`] === value
-                            } onChange={(e) => handleOptionChange(op?.position, value)} id={`${value}`} className='peer hidden' type='radio' name={`${op?.name}`} />
-                                <label htmlFor={`${value}`} className='peer-checked:after:block after:hidden after:content-["\2714"] after:leading-none overflow-hidden relative after:text-white after:rounded-bl-[50px] after:w-[15px] after:h-[14px] after:absolute after:right-0 after:top-0 after:text-[8px] after:pt-[3px] after:pb-[5px] after:pl-[5px] after:bg-[#10069f] cursor-pointer leading-5 flex items-center gap-2 text tracking-wider py-[8px] px-[12px] rounded-lg peer-checked:text-[#10069f] border peer-checked:border-[#10069f]' >
+                            } onChange={(e) => handleOptionChange(op?.position, value)} id={`${op?.position}${value}`} className='peer hidden' type='radio' name={`${op?.name}`} />
+                                <label htmlFor={`${op?.position}${value}`} className={`peer-checked:after:block after:hidden after:content-['✔'] after:leading-none overflow-hidden relative after:text-white after:rounded-bl-[50px] after:w-[15px] after:h-[14px] after:absolute after:right-0 after:top-0 after:text-[8px] after:pt-[3px] after:pb-[5px] after:pl-[5px] after:bg-[#10069f] cursor-pointer leading-5 flex items-center gap-2 text tracking-wider py-[8px] px-[12px] rounded-lg peer-checked:text-[#10069f] border peer-checked:border-[#10069f] ${!isOptionAvailable(op?.position, value) && op?.position !== 1 ? 'line-through' : ''}`} >
                                     {op?.name.includes('Màu sắc') && (<span className='border w-5 h-5 rounded-full bg-black'></span>)}
                                     {value}
                                 </label>
