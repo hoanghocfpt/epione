@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // proxy
+    images: {
+        domains: ['cdn.shopify.com'],
+    },
     async rewrites() {
         return [
             {
@@ -8,7 +10,7 @@ const nextConfig = {
                 destination: 'https://epione.vn/:path*',
             },
         ];
-    },
+    }
 };
 
 export default nextConfig;

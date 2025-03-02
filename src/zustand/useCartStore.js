@@ -1,5 +1,7 @@
-import create from 'zustand';
+import { create } from 'zustand';
 
+// item
+// {name, variant: {id, price, available, title, featured_image: {src}}, quantity}
 const useCartStore = create((set) => ({
     cart: [],
     // add to cart, if item already exists, increase quantity, check by variant id

@@ -1,17 +1,15 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation'
-const Options = ({options, variants}) => {
+const Options = ({options, variants, option, setOption, variant, setVariant}) => {
     const searchParams = useSearchParams()
+    const params = new URLSearchParams(searchParams.toString());
+    
     const router = useRouter()
-     // options
-    const [option, setOption] = useState({
-        option1: variants[0]?.option1,
-        option2: variants[0]?.option2,
-        option3: variants[0]?.option3
-    });
+    
 
-    const [variant, setVariant] = useState(null);
+    const [changeOp, setChangeOp] = useState(false);
+
     
     const isOptionAvailable = (position, value) => {
         const newOption = { ...option, [`option${position}`]: value };
@@ -28,26 +26,27 @@ const Options = ({options, variants}) => {
             ...option,
             [`option${position}`]: value
         });
+        setChangeOp(true);
     };
     
     useEffect(() => {
         setVariant(variants.find(v => {
             return v.option1 === option.option1 && v.option2 === option.option2 && v.option3 === option.option3;
         }));
-        console.log(variant);
         
-    }, [option]);
+    }, [option, variants]);
 
+    
     useEffect(() => {
-        if(variant){
-            const params = new URLSearchParams(searchParams.toString());
+
+        if(changeOp && variant){
             params.set('variant', variant.id);
+            
             window.history.replaceState({}, '', `?${params.toString()}`);
         }
-    }, [variant]);
+    }, [variant, changeOp, params]);
 
 
-    console.log(option, variant);
     return (
         <>
             <div>{variant?.title} {variant?.price} {variant?.available ? 'Còn hàng' : 'Không còn hàng'}</div>
