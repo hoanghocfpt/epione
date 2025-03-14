@@ -26,7 +26,7 @@ const LoginPage = () => {
                     <button className='bg-[#10069f] text-white p-[11px] outline outline-offset outline-transparent rounded-md hover:outline-[#10069f]'>Đăng nhập</button>
                 </div>
                 <div className='flex justify-center mt-[20px]'>
-                    <Link href={'/account/login'} className='text-sm text-[#10069f] underline underline-offset-2 text-center'>Tạo tài khoản</Link>
+                    <Link href={'/account/register'} className='text-sm text-[#10069f] underline underline-offset-2 text-center'>Tạo tài khoản</Link>
                 </div>
             </div>
         </div>

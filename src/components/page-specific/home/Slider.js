@@ -8,7 +8,9 @@ import { EffectFade, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 const Slider = () => {
     const data = [
+        '/epione-smartdesk-mono-launch-banner.webp',
         '/banner-xmas.webp',
+        '/meo-lam-viec-khong-dau-lung-thumb.webp',
         '/mini-game-banner.webp',
         '/promo-banner.webp',
         '/promotion-t2-banner.webp',

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import ProductImages from './ProductImages';
 import Options from './Options';
 import useCartStore from '@/zustand/useCartStore'
+import useCartDrawer from '@/zustand/useCartDrawer';
 const ParentOption = ({product}) => {
     const { addToCart } = useCartStore()
     const [option, setOption] = useState({
@@ -13,14 +14,18 @@ const ParentOption = ({product}) => {
     const [variant, setVariant] = useState();
 
     const [buyWholesale, setBuyWholesale] = useState(false);
-
+    
+    const { open } = useCartDrawer();
     const handleAddToCart = () => {
         const item = {
             title: product?.title,
+            handle: product?.handle,
             variant: variant,
-            quantity: 1
+            quantity: 1,
         }
         addToCart(item)
+        open()
+        
         console.log('add to cart', item);
     }
     return (

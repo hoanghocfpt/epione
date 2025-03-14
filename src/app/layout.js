@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import ScrollTop from "@/components/common/ScrollTop";
 import Footer from "@/components/layout/Footer";
+import CartDrawer from "@/components/common/CartDrawer";
 
 const nuNitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${nuNitoSans.className} antialiased`}
       >
+        <CartDrawer />
         <Header />
         {children}
         <Footer />
