@@ -16,6 +16,8 @@ const CartDrawer = () => {
             document.body.style.overflow = 'auto';
         }
     }, [isOpen]);
+    
+    const total = cart.reduce((acc, item) => acc + item.quantity * item.variant.price, 0)
     return (
         <>
             <div onClick={() => close()} className={`fixed z-[51] inset-0 bg-black bg-opacity-50 transition-opacity ${
@@ -44,7 +46,7 @@ const CartDrawer = () => {
                 </div>
                 <div className='flex justify-between items-center'>
                     <span className='text-[#282828] text-lg font-bold'>Tạm tính</span>
-                    <span className='text-[#10069f] text-lg font-bold'>8.070.000₫</span>
+                    <span className='text-[#10069f] text-lg font-bold'>{parseInt(total.toString().slice(0, -2)).toLocaleString('vi-VN') + ' VND'}</span>
                 </div>
                 <div>
                     <div className='flex justify-between items-center pb-4'>
