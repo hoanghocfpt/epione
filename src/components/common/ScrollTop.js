@@ -1,15 +1,28 @@
 'use client'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const ScrollTop = () => {
     const [isVisible, setIsVisible] = useState(false);
-    window.onscroll = () => {
-        if (window.pageYOffset > 300) {
-            setIsVisible(true);
-        } else {
-            setIsVisible(false);
+    // window.onscroll = () => {
+    //     if (window.pageYOffset > 300) {
+    //         setIsVisible(true);
+    //     } else {
+    //         setIsVisible(false);
+    //     }
+    // };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.pageYOffset > 300) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
         }
-    };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const handleClick = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
