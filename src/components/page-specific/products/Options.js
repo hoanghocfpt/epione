@@ -46,7 +46,7 @@ const Options = ({options, variants, option, setOption, variant, setVariant, set
             window.history.replaceState({}, '', `?${params.toString()}`);
             setSelectedProductImage(variant.featured_image.position)
         }
-    }, [variant, changeOp, params]);
+    }, [variant, changeOp, params, setSelectedProductImage]);
 
 
     return (
