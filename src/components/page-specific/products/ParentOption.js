@@ -1,17 +1,29 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductImages from './ProductImages';
 import Options from './Options';
 import useCartStore from '@/zustand/useCartStore'
 import useCartDrawer from '@/zustand/useCartDrawer';
-const ParentOption = ({product}) => {
+const ParentOption = ({ product, variantQ }) => {
+    
     const { addToCart } = useCartStore()
     const [option, setOption] = useState({
         option1: product?.variants[0]?.option1,
         option2: product?.variants[0]?.option2,
         option3: product?.variants[0]?.option3
     });
+    
     const [variant, setVariant] = useState();
+    useEffect(() => {
+        if (variantQ) {
+            const variant = product?.variants.find(v => v.id == variantQ);
+            setOption({
+                option1: variant?.option1,
+                option2: variant?.option2,
+                option3: variant?.option3
+            }); 
+        }
+    }, [variantQ, product])
 
     const [buyWholesale, setBuyWholesale] = useState(false);
     
@@ -28,9 +40,14 @@ const ParentOption = ({product}) => {
         
         console.log('add to cart', item);
     }
+
+    const [selectedProductImage, setSelectedProductImage] = useState(0);
+    console.log(selectedProductImage);
+    
+
     return (
         <div className='max-w-screen-2xl mx-auto px-8 grid grid-cols-2 gap-[24px] py-8'>
-            <ProductImages data={product?.images} />
+            <ProductImages data={product?.images} selectedProductImage={selectedProductImage} />
             <div className='pl-7 py-3'>
                 <h1 className='text-[#10069f] text-[34px] font-semibold mb-3'>{product?.title}</h1>
                 <div className='flex items-center gap-1 mb-2'>
@@ -57,7 +74,7 @@ const ParentOption = ({product}) => {
                     </div>
                 </div>
                 <div className='flex flex-col gap-5 mt-5'>
-                    <Options options={product?.options} variants={product?.variants} option={option} setOption={setOption} variant={variant} setVariant={setVariant} />
+                    <Options options={product?.options} variants={product?.variants} option={option} setOption={setOption} variant={variant} setVariant={setVariant} setSelectedProductImage={setSelectedProductImage} />
                     {buyWholesale && (
                         <div>
                             <table className='w-full border-separate'>

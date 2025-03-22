@@ -7,7 +7,7 @@ import 'swiper/css';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
 
-const ProductImages = ({ data }) => {
+const ProductImages = ({ data, selectedProductImage }) => {
     // const data = [
     //     '/ban-nang-ha-epione-smartdesk-lite-20-110457.webp',
     //     '/ban-nang-ha-epione-smartdesk-lite-20-220696.webp',
@@ -38,6 +38,13 @@ const ProductImages = ({ data }) => {
           lightbox = null;
         };
       }, []);
+
+    useEffect(() => {
+        if (selectedProductImage !== 0) {
+            swiperRef.current.slideTo(selectedProductImage - 1, 500);
+            swiperRef2.current.slideTo(selectedProductImage - 1, 500);
+        }
+    }, [selectedProductImage]);
     return (
         <div className='sticky top-[72px] bg-white h-fit'>
             <div className='relative flex items-center'>
