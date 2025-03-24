@@ -7,6 +7,14 @@ const CartItem = ({item, removeFromCart, updateQuantity, increaseQuantity, decre
     useEffect(() => {
         setQuantity(item?.quantity);
     }, [item?.quantity]);
+    const handleChangeInput = (e) => {
+        if (Number(e.target.value)) {
+            setQuantity(e.target.value)
+        }
+        else {
+            setQuantity(item?.quantity)
+        }
+    }
     return (
         <tr className='py-[16px] grid gap-[16px] grid-rows-[auto_auto] grid-cols-[80px_1fr_1fr] border-b border-[#e5e5e5] last-of-type:border-none'>
             <td className='row-start-1 row-end-3'>
@@ -30,7 +38,7 @@ const CartItem = ({item, removeFromCart, updateQuantity, increaseQuantity, decre
                     <button onClick={()=>decreaseQuantity(item?.variant.id)} className='w-[36px] flex justify-center items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" d="M19.5 12h-15"></path></svg>
                     </button>
-                    <input onBlur={()=>updateQuantity(item?.variant.id, quantity)} className='outline-none border-none w-[46px] text-center' onChange={(e) => setQuantity(e.target.value)} value={quantity} type="text" />
+                    <input onBlur={()=>updateQuantity(item?.variant.id, quantity)} className='outline-none border-none w-[46px] text-center' onChange={handleChangeInput} value={quantity} type="text" />
                     <button onClick={()=>increaseQuantity(item?.variant.id)} className='w-[36px] flex justify-center items-center'>
                         <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" d="M12 3.5v17m8.5-8.5h-17"></path></svg>
                     </button>

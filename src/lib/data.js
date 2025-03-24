@@ -5,28 +5,28 @@ const data = {
             title: 'Ghế công thái học',
             handle: 'ghe-cong-thai-hoc',
             description: 'Lựa chọn hoàn hảo cho không gian làm việc chuyên nghiệp sử dụng đồ nội thất công thái học. Với thiết kế công thái học đặc biệt cùng ưu điểm của các mẫu ghế xoay như chất liệu cao cấp, tính năng linh hoạt, ghế Epione đáp ứng mọi nhu cầu nội thất văn phòng. Ghế Epione cũng giúp tăng sự thoải mái, chất lượng sức khỏe so với các mẫu ghế văn phòng khác.',
-            image: 'ghe-cong-thai-hoc.webp',
+            image: '/collection-ghe-cong-thai-hoc.webp',
         },
         {
             id: 2,
             title: 'Bàn Epione',
             handle: 'ban-epione',
             description: 'Sản phẩm hướng tới sự tiện nghi, tạo nên góc làm việc, học tập cao cấp với mức giá hợp lý.',
-            image: 'ghe-cong-thai-hoc.webp',
+            image: '/collection-ban-nang-ha.webp',
         },
         {
             id: 3,
             title: 'Phụ kiện',
             handle: 'phu-kien',
             description: '',
-            image: 'ghe-cong-thai-hoc.webp',
+            image: '/collection-phu-kien.webp',
         },
         {
             id: 4,
             title: 'Combo Setup',
             handle: 'combo-setup',
             description: '',
-            image: '',
+            image: '/collection-combo.webp',
         },
 
         

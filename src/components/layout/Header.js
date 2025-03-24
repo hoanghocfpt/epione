@@ -11,7 +11,7 @@ const Header = () => {
     const { cart } = useCartStore()
     const { open } = useCartDrawer();
     const [isSearchOpen, setIsSearchOpen] = useState(false);
-    const count = cart.reduce((acc, item) => acc + item.quantity, 0)
+    const count = cart.reduce((acc, item) => acc + Number(item.quantity), 0)
     
     return (
         <>
