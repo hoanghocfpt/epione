@@ -44,14 +44,14 @@ const Options = ({options, variants, option, setOption, variant, setVariant, set
             params.set('variant', variant.id);
             
             window.history.replaceState({}, '', `?${params.toString()}`);
-            setSelectedProductImage(variant.featured_image.position)
+            setSelectedProductImage(variant.featured_image?.position)
         }
     }, [variant, changeOp, params, setSelectedProductImage]);
 
 
     return (
         <>
-            <div>{variant?.title} {variant?.price} {variant?.featured_image.position} {variant?.available ? 'Còn hàng' : 'Không còn hàng'}</div>
+            {/* <div>{variant?.title} {variant?.price} {variant?.featured_image.position} {variant?.available ? 'Còn hàng' : 'Không còn hàng'}</div> */}
             {options.map((op, index) => (
                 <div key={index}>
                     <span className='font-semibold block mb-3'>{op?.name}</span>

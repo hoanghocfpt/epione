@@ -1,36 +1,18 @@
-'use client'
 import Drawer from '@/components/common/Drawer';
 import Image from 'next/image';
 import data from '@/lib/data';
 import Link from 'next/link';
-import { useState } from "react";
-const CollectionsPage = () => {
-    const [isFilterOpen, setIsFilterOpen] = useState(false);
+// import { useState, use } from "react";
+const CollectionsPage = ({ params, searchParams }) => {
+    const slug = params
+    const filter = searchParams.filter;
+    const sort_by = searchParams.sort_by;
+    console.log(slug, sort_by, filter);
+    
+    // const [isFilterOpen, setIsFilterOpen] = useState(false);
     return (
         <div>
-            <Drawer isOpen={isFilterOpen} onClose={() => setIsFilterOpen(false)}>
-                {/* <h2 className="text-lg font-bold">Bộ lọc sản phẩm</h2>
-                <form>
-                    <div>
-                    <label className="block text-sm font-medium text-gray-700">Giá</label>
-                    <input type="range" className="mt-2 w-full" />
-                    </div>
-                    <div>
-                    <label className="block text-sm font-medium text-gray-700">Danh mục</label>
-                    <select className="mt-2 w-full border rounded">
-                        <option value="all">Tất cả</option>
-                        <option value="electronics">Điện tử</option>
-                        <option value="furniture">Nội thất</option>
-                    </select>
-                    </div>
-                    <button
-                    type="submit"
-                    className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-                    >
-                    Áp dụng
-                    </button>
-                </form> */}
-            </Drawer>
+            
 
             <div className='flex items-center py-[8px] max-w-screen-2xl mx-auto px-8 bg-[#f0f0f0]'>
                 <Link href='/' className='leading-none'>
@@ -50,10 +32,20 @@ const CollectionsPage = () => {
                     <span className='text-[44px] font-bold'>{data.products.length} sản phẩm</span>
                 </div>
                 <div className='flex items-center justify-between mt-8 mb-6'>
-                    <div onClick={() => setIsFilterOpen(true)} className='flex items-center justify-center py-[6px] px-[12px] border w-fit rounded-lg cursor-pointer'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24"><g fill="none" stroke="#0000001a" strokeLinecap="round"><path d="M10 8h10M4 16h10"></path><circle cx={7} cy={8} r={3} transform="rotate(90 7 8)"></circle><circle cx={17} cy={16} r={3} transform="rotate(90 17 16)"></circle></g></svg>
-                        <span className='text-[#10069f] ml-[8px] text-[16px] leading-none hover:underline'>Bộ lọc</span>
+                    <div className='flex items-center gap-8'>
+                        <div className='flex items-center justify-center py-[6px] px-[12px] border w-fit rounded-lg cursor-pointer'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24"><g fill="none" stroke="#0000001a" strokeLinecap="round"><path d="M10 8h10M4 16h10"></path><circle cx={7} cy={8} r={3} transform="rotate(90 7 8)"></circle><circle cx={17} cy={16} r={3} transform="rotate(90 17 16)"></circle></g></svg>
+                            <span className='text-[#10069f] ml-[8px] text-[16px] leading-none hover:underline'>Bộ lọc</span>
+                        </div>
+                        <div>
+                            {filter && filter.map((item, index) =>(
+                                <div key={index} className='flex items-center gap-2'>
+                                    <span className='text-[#282828] text-[14px] leading-none'>{item}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
+
                     <div className='flex items-center'>
                         <span className='text-[#929292] text-[14px] mr-[14px]'>Sắp xếp theo:</span>
                         <div className='border rounded-lg cursor-pointer flex items-center overflow-hidden relative'>

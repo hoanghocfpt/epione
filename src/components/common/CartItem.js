@@ -19,7 +19,7 @@ const CartItem = ({item, removeFromCart, updateQuantity, increaseQuantity, decre
         <tr className='py-[16px] grid gap-[16px] grid-rows-[auto_auto] grid-cols-[80px_1fr_1fr] border-b border-[#e5e5e5] last-of-type:border-none'>
             <td className='row-start-1 row-end-3'>
                 <Link href={'/products/'+item?.handle + '?variant='+item?.variant.id} className='flex gap-4'>
-                    <Image width={150} height={113} className='' src={item?.variant.featured_image.src} alt='product' />
+                    <Image width={150} height={113} className='' src={item?.variant.featured_image?.src} alt='product' />
                 </Link>
             </td>
             <td className='col-start-2 col-end-4'>

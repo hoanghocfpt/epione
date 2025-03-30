@@ -4,10 +4,9 @@ import data from '@/lib/data'
 import Options from '@/components/page-specific/products/Options';
 import Information from '@/components/page-specific/products/Information';
 import ParentOption from '@/components/page-specific/products/ParentOption';
-
-const ProductsPage = async ({ params, searchParams }) => {
-    const slug = params.slug
-    const variant = searchParams.variant
+const ProductsPage = ({ params, searchParams }) => {
+    const slug = params.slug;
+    const variant = searchParams.variant;
     const product  = data?.products.find(item => item.handle === slug)
     
     return (
