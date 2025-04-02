@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation'
 const Options = ({options, variants, option, setOption, variant, setVariant, setSelectedProductImage}) => {
     const searchParams = useSearchParams()
-    const params = new URLSearchParams(searchParams.toString());
-    
+   
     const router = useRouter()
     
 
@@ -35,18 +34,20 @@ const Options = ({options, variants, option, setOption, variant, setVariant, set
             return v.option1 === option.option1 && v.option2 === option.option2 && v.option3 === option.option3;
         }));
         
-    }, [option, variants]);
+    }, [option, variants, setVariant]);
 
     
     useEffect(() => {
 
+        const params = new URLSearchParams(searchParams.toString());
+    
         if(changeOp && variant){
             params.set('variant', variant.id);
             
             window.history.replaceState({}, '', `?${params.toString()}`);
             setSelectedProductImage(variant.featured_image?.position)
         }
-    }, [variant, changeOp, params, setSelectedProductImage]);
+    }, [variant, changeOp, searchParams, setSelectedProductImage]);
 
 
     return (
