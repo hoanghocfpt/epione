@@ -8,6 +8,8 @@ import { EffectFade, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 const Slider = () => {
     const data = [
+        '/promotion-khai-hoa-t4.webp',
+        '/epione-website-banner.webp',
         '/epione-smartdesk-mono-launch-banner.webp',
         '/banner-xmas.webp',
         '/meo-lam-viec-khong-dau-lung-thumb.webp',

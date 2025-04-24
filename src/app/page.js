@@ -133,9 +133,9 @@ export default function Home() {
           <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24"><path fill="currentColor" d="m18 12l.354-.354l.353.354l-.353.354zm-12 .5a.5.5 0 0 1 0-1zm8.354-4.854l4 4l-.708.708l-4-4zm4 4.708l-4 4l-.708-.708l4-4zM18 12.5H6v-1h12z"></path></svg>
         </Link>
       </div>
-      <div className='max-w-screen-2xl mx-auto px-8 py-10'>
+      <div className='max-w-screen-2xl mx-auto px-4 md:px-8 py-10'>
         <h2 className='text-[44px] font-bold text-center mb-6'>Sản phẩm nổi bật</h2>
-        <div className='grid grid-cols-4 gap-7 mb-7'>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-7 mb-7'>
           <Link href='/products/ghe-cong-thai-hoc' className='group rounded-2xl overflow-hidden border-[1px] border-[#e5e5e5]'>
             <div className='transition-transform aspect-[4/3] relative overflow-hidden'>
               <Image width={500} height={500} className='absolute top-0 transition-all duration-500 group-hover:scale-105 opacity-0 group-hover:opacity-100 w-full mb-2 h-full object-cover' src='/pic10.jpg' alt='chair' />
@@ -362,9 +362,9 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <div className='max-w-screen-2xl mx-auto px-8 py-10'>
+      <div className='max-w-screen-2xl mx-auto px-4 md:px-8 py-10'>
         <h2 className='text-[44px] font-bold text-center mb-6'>Góc chia sẻ</h2>
-        <div className='grid grid-cols-3 gap-7 mb-7'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-7 mb-7'>
           <Link href='/blogs/ghe-cong-thai-hoc' className='group rounded-2xl overflow-hidden border-[1px] border-[#e5e5e5]'>
             <div className='transition-transform aspect-[526/316] relative overflow-hidden'>
               <Image width={1000} height={1000} className='absolute top-0 transition-all duration-500 group-hover:scale-105 w-full mb-2 h-full object-cover' src='/co-nen-dau-tu-cho-minh-mot-chiec-ban-nang-ha-314212.webp' alt='chair' />
