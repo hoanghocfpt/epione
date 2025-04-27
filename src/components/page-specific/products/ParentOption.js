@@ -16,7 +16,7 @@ const ParentOption = ({ product, variantQ }) => {
     const [variant, setVariant] = useState();
     useEffect(() => {
         if (variantQ) {
-            const variant = product?.variants.find(v => v.id == variantQ);
+            const variant = product?.variants.find(v => v._id == variantQ);
             setOption({
                 option1: variant?.option1,
                 option2: variant?.option2,

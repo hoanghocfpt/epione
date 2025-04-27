@@ -42,7 +42,7 @@ const Options = ({options, variants, option, setOption, variant, setVariant, set
         const params = new URLSearchParams(searchParams.toString());
     
         if(changeOp && variant){
-            params.set('variant', variant.id);
+            params.set('variant', variant._id);
             
             window.history.replaceState({}, '', `?${params.toString()}`);
             setSelectedProductImage(variant.featured_image?.position)

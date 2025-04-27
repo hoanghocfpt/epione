@@ -33,6 +33,97 @@ const data = {
         
     ],
     products: [
+      {
+        "_id": "680e0d65e2873ef8bbbd9574",
+        "title": "Áo thun Local Brand Unisex",
+        "handle": "ao-thun-local-brand-unisex",
+        "description": "Áo thun basic form rộng, chất vải cotton 100%, co giãn 4 chiều, rất thoáng mát.",
+        "published_at": "2025-04-27T12:00:00.000Z",
+        "price": 299000,
+        "price_min": 299000,
+        "price_max": 399000,
+        "available": true,
+        "featured_image": "https://example.com/images/ao-thun.jpg",
+        "url": "/products/ao-thun-local-brand-unisex",
+        "variants": [
+          {
+            "title": "Trắng / M",
+            "option1": "Trắng",
+            "option2": "M",
+            "option3": null,
+            "sku": "XYZ-TRANG-M",
+            "featured_image": "//cdn.shopify.com/s/files/1/0596/1551/0598/files/ghe-cong-thai-hoc-epione-fortischair-293838.webp?v=1737726305",
+            "available": true,
+            "name": "Áo thun Local Brand Unisex - Trắng / M",
+            "public_title": "Trắng / M",
+            "options": [
+              "Trắng",
+              "M"
+            ],
+            "price": 299000,
+            "_id": "680e0d66e2873ef8bbbd9575"
+          },
+          {
+            "title": "Đen / L",
+            "option1": "Đen",
+            "option2": "L",
+            "option3": null,
+            "sku": "XYZ-DEN-L",
+            "featured_image": "//cdn.shopify.com/s/files/1/0596/1551/0598/files/ghe-cong-thai-hoc-epione-fortischair-293838.webp?v=1737726305",
+            "available": true,
+            "name": "Áo thun Local Brand Unisex - Đen / L",
+            "public_title": "Đen / L",
+            "options": [
+              "Đen",
+              "L"
+            ],
+            "price": 319000,
+            "_id": "680e0d66e2873ef8bbbd9576"
+          }
+        ],
+        "options": [
+          {
+            "name": "Màu sắc",
+            "position": 1,
+            "values": [
+              "Trắng",
+              "Đen",
+              "Xám"
+            ],
+            "_id": "680e0d66e2873ef8bbbd9577"
+          },
+          {
+            "name": "Kích cỡ",
+            "position": 2,
+            "values": [
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "_id": "680e0d66e2873ef8bbbd9578"
+          }
+        ],
+        "images": [
+          "//cdn.shopify.com/s/files/1/0596/1551/0598/files/ghe-cong-thai-hoc-epione-fortischair-293838.webp?v=1737726305",
+          "//cdn.shopify.com/s/files/1/0596/1551/0598/files/ghe-cong-thai-hoc-epione-fortischair-293838.webp?v=1737726305",
+          "//cdn.shopify.com/s/files/1/0596/1551/0598/files/ghe-cong-thai-hoc-epione-fortischair-293838.webp?v=1737726305"
+        ],
+        "tags": [
+          "local brand",
+          "unisex",
+          "áo thun"
+        ],
+        "collections": [
+          "680e0750e2873ef8bbbd9561"
+        ],
+        "vendor": "BrandXYZ",
+        "product_type": "Áo thun",
+        "status": "active",
+        "created_at": "2025-04-27T10:56:38.056Z",
+        "updated_at": "2025-04-27T10:56:38.056Z",
+        "__v": 0
+      },
         {
             "id": 7395345563718,
             "title": "Ghế công thái học Epione FortisChair",
