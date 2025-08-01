@@ -1,12 +1,17 @@
 import mongoose, { Schema } from 'mongoose';
 
+const FeaturedImage = new Schema({
+    alt: String,
+    position: Number,
+    src: String
+})
 const VariantSchema = new Schema({
     title: String,
     option1: String,
     option2: { type: String, default: null },
     option3: { type: String, default: null },
     sku: String,
-    featured_image: String,
+    featured_image: {FeaturedImage},
     available: Boolean,
     name: String,
     public_title: String,
@@ -35,7 +40,7 @@ const ProductSchema = new Schema({
     images: [String],
     tags: [String],
     collections: [{ 
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Collection'
     }],
     vendor: { type: String },

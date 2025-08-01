@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 const ProductGrid = ({ data, sort_by }) => {
-    const [products, setProducts] = useState([...data.products])
+    const [products, setProducts] = useState(data)
     useEffect(() => {
         if (sort_by === 'az'){
             products.sort((a, b) => a.title.localeCompare(b.title)) 
@@ -21,6 +21,12 @@ const ProductGrid = ({ data, sort_by }) => {
             return
         }
     }, [sort_by, products])
+
+    // useEffect(() => {
+    //     fetch('http://localhost:3000/api/products')
+    //     .then((res) => res.json())
+    //     .then((res) => setProducts(res))
+    // }, [])
     return (
         <div className='grid grid-cols-5 mb-8 gap-5'>
             {products.map((product, index) => (

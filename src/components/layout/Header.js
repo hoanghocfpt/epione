@@ -21,7 +21,7 @@ const Header = () => {
                 </Link>
             </div>
             <SearchDrawer isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-            <div className='max-w-screen-2xl sticky top-0 z-50 bg-white mx-auto flex items-center justify-between p-4'>
+            <div className='max-w-screen-2xl border-b sticky top-0 z-50 bg-white mx-auto flex items-center justify-between p-4'>
                 <Link href={'/'}>
                     <Image width={100} height={30} src='/logo.webp' alt='logo' />
                 </Link>
@@ -32,13 +32,13 @@ const Header = () => {
                     <Link href={'/collections/ghe-cong-thai-hoc'}>
                         <span className='text-[16px] flex justify-center items-center text-[#000000bf] font-bold py-[8px] px-[20px] rounded-xl transition-all hover:text-[#10069f] hover:bg-[#10069f24]'>Bàn Epione</span>
                     </Link>
-                    <Link href={'/contact'}>
+                    <Link href={'/collections/phu-kien'}>
                         <span className='text-[16px] flex justify-center items-center text-[#000000bf] font-bold py-[8px] px-[20px] rounded-xl transition-all hover:text-[#10069f] hover:bg-[#10069f24]'>Phụ kiện</span>
                     </Link>
-                    <Link href={'/contact'}>
+                    <Link href={'/blogs'}>
                         <span className='text-[16px] flex justify-center items-center text-[#000000bf] font-bold py-[8px] px-[20px] rounded-xl transition-all hover:text-[#10069f] hover:bg-[#10069f24]'>Góc chia sẻ</span>
                     </Link>
-                    <Link href={'/contact'}>
+                    <Link href={'/'}>
                         <span className='text-[16px] flex justify-center items-center text-[#000000bf] font-bold py-[8px] px-[20px] rounded-xl transition-all hover:text-[#10069f] hover:bg-[#10069f24]'>Hỗ trợ Khách hàng</span>
                     </Link>
                     

@@ -5,7 +5,9 @@ import Link from 'next/link';
 import SortBy from '@/components/page-specific/collections/SortBy';
 import ProductGrid from '@/components/page-specific/collections/ProductGrid';
 // import { useState, use } from "react";
-const CollectionsPage = ({ params, searchParams }) => {
+const CollectionsPage = async ({ params, searchParams }) => {
+    const data = await fetch('http://localhost:3000/api/products')
+    const product = await data.json()
     const slug = params
     const filter = searchParams.filter;
     const sort_by = searchParams.sort_by;
@@ -31,7 +33,7 @@ const CollectionsPage = ({ params, searchParams }) => {
             </div>
             <div className='max-w-screen-2xl mx-auto px-8'>
                 <div>
-                    <span className='text-[44px] font-bold'>{data.products.length} sản phẩm</span>
+                    <span className='text-[44px] font-bold'>{product.length} sản phẩm</span>
                 </div>
                 <div className='flex items-center justify-between mt-8 mb-6'>
                     <div className='flex items-center gap-8'>
@@ -50,7 +52,7 @@ const CollectionsPage = ({ params, searchParams }) => {
 
                     <SortBy />
                 </div>
-                <ProductGrid data={data} sort_by={sort_by} />
+                <ProductGrid data={product} sort_by={sort_by} />
             </div>
         </div>
     );

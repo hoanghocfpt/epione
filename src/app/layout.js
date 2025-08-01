@@ -8,6 +8,7 @@ import CartDrawer from "@/components/common/CartDrawer";
 const nuNitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
   subsets: ["latin"],
+  adjustFontFallback: false
 });
 
 export const metadata = {
@@ -18,6 +19,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          href="/favicon.png"
+          type="image/png"
+          sizes="32x32"
+        />
+      </head>
       <body
         className={`${nuNitoSans.className} antialiased`}
       >
