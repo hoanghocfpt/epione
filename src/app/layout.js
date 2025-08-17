@@ -6,14 +6,13 @@ import Footer from "@/components/layout/Footer";
 import CartDrawer from "@/components/common/CartDrawer";
 
 const nuNitoSans = Nunito_Sans({
-  variable: "--font-nunito-sans",
   subsets: ["latin"],
-  adjustFontFallback: false
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata = {
   title: "Epione | Thương hiệu công thái học đầu tiên dành cho người Việt",
-  description: "Đây không phải website chính thức, đây là sản phẩm demo",
+  description: "Đây không phải website chính thức, đây là website clone cho mục đích giáo dục.",
 };
 
 export default function RootLayout({ children }) {
