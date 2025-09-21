@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 const AdminPage = () => {
     const [value, setValue] = useState('');
-    // add text font
+    
     const modules = {
         toolbar: [
             [{ 'font': [] }],

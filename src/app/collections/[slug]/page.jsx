@@ -6,9 +6,9 @@ import SortBy from '@/components/page-specific/collections/SortBy';
 import ProductGrid from '@/components/page-specific/collections/ProductGrid';
 // import { useState, use } from "react";
 const CollectionsPage = async ({ params, searchParams }) => {
-    const data = await fetch('http://localhost:3000/api/products')
-    const product = await data.json()
     const slug = params
+    const data = await fetch('http://localhost:3000/api/products/collection/'+slug)
+    const product = await data.json()
     const filter = searchParams.filter;
     const sort_by = searchParams.sort_by;
     console.log(slug, sort_by, filter);

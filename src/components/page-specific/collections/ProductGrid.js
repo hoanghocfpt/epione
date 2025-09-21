@@ -21,19 +21,14 @@ const ProductGrid = ({ data, sort_by }) => {
             return
         }
     }, [sort_by, products])
-
-    // useEffect(() => {
-    //     fetch('http://localhost:3000/api/products')
-    //     .then((res) => res.json())
-    //     .then((res) => setProducts(res))
-    // }, [])
+    
     return (
         <div className='grid grid-cols-5 mb-8 gap-5'>
             {products.map((product, index) => (
                 <Link key={index} href={`/products/`+ product.handle} className='group rounded-2xl overflow-hidden border-[1px] border-[#e5e5e5]'>
                     <div className='transition-transform aspect-[4/3] relative overflow-hidden'>
-                    <img width={500} height={500} className='absolute top-0 transition-all duration-500 group-hover:scale-105 opacity-0 group-hover:opacity-100 w-full mb-2 h-full object-cover' src={product.images[1]} alt='chair' />
                     <img width={500} height={500} className='absolute top-0 duration-500 group-hover:scale-100 opacity-100 group-hover:opacity-0 w-full mb-2 h-full object-cover' src={product.images[0]} alt='chair' />
+                    <img width={500} height={500} className='absolute top-0 transition-all duration-500 group-hover:scale-105 opacity-0 group-hover:opacity-100 w-full mb-2 h-full object-cover' src={product?.images[1] || product.images[0]} alt='chair' />
                     </div>
                     <div className='p-4'>
                     <div className='flex items-center justify-between mb-3 border-b border-[#e5e5e5] pb-3'>
