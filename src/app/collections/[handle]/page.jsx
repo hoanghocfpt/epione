@@ -4,15 +4,16 @@ import data from '@/lib/data';
 import Link from 'next/link';
 import SortBy from '@/components/page-specific/collections/SortBy';
 import ProductGrid from '@/components/page-specific/collections/ProductGrid';
+import CollectionLayout from '@/components/page-specific/collections/CollectionLayout';
 // import { useState, use } from "react";
 const CollectionsPage = async ({ params, searchParams }) => {
-    const slug = params
-    const data = await fetch('http://localhost:3000/api/products/collection/'+slug)
-    const product = await data.json()
+    const handle = await params.handle
+    
+    // const product = await data.json()
     const filter = searchParams.filter;
     const sort_by = searchParams.sort_by;
-    console.log(slug, sort_by, filter);
-    
+    console.log(handle, sort_by, filter);
+
     // const [isFilterOpen, setIsFilterOpen] = useState(false);
     return (
         <div>
@@ -31,29 +32,7 @@ const CollectionsPage = async ({ params, searchParams }) => {
                     <p className='text-[16px] font-medium text-[#282828] mt-4 text-center'>Ghế công thái học Epione - kết tinh của sự đam mê sáng tạo với sản phẩm công thái học dành riêng cho người Việt. Với thiết kế hiện đại cùng những công nghệ tối ưu, mỗi chiếc ghế của Epione chắc chắn sẽ mang đến những trải nghiệm thú vị, giúp nâng cao chất lượng sống và làm việc của người dùng.</p>
                 </div>
             </div>
-            <div className='max-w-screen-2xl mx-auto px-8'>
-                <div>
-                    <span className='text-[44px] font-bold'>{product.length} sản phẩm</span>
-                </div>
-                <div className='flex items-center justify-between mt-8 mb-6'>
-                    <div className='flex items-center gap-8'>
-                        <div className='flex items-center justify-center py-[6px] px-[12px] border w-fit rounded-lg cursor-pointer'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24"><g fill="none" stroke="#0000001a" strokeLinecap="round"><path d="M10 8h10M4 16h10"></path><circle cx={7} cy={8} r={3} transform="rotate(90 7 8)"></circle><circle cx={17} cy={16} r={3} transform="rotate(90 17 16)"></circle></g></svg>
-                            <span className='text-[#10069f] ml-[8px] text-[16px] leading-none hover:underline'>Bộ lọc</span>
-                        </div>
-                        <div>
-                            {filter && filter.map((item, index) =>(
-                                <div key={index} className='flex items-center gap-2'>
-                                    <span className='text-[#282828] text-[14px] leading-none'>{item}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <SortBy />
-                </div>
-                <ProductGrid data={product} sort_by={sort_by} />
-            </div>
+            <CollectionLayout handle={handle} filter={filter} sort_by={sort_by} />
         </div>
     );
 };

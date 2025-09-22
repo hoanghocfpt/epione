@@ -15,6 +15,11 @@ const CollectionSchema = new Schema({
         type: String,
         default: '',
     },
+    products: {
+        type: Array,
+        default: [],
+        items: { type: String }
+    },
     published: {
         type: Boolean,
         default: true

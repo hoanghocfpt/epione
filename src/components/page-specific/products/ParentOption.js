@@ -5,6 +5,7 @@ import Options from './Options';
 import useCartStore from '@/zustand/useCartStore'
 import useCartDrawer from '@/zustand/useCartDrawer';
 const ParentOption = ({ product, variantQ }) => {
+    console.log(product);
     
     const { addToCart } = useCartStore()
     const [option, setOption] = useState({
@@ -169,6 +170,7 @@ const ParentOption = ({ product, variantQ }) => {
 
             </div>
         </div>
+        // <></>
     );
 };
 

@@ -29,6 +29,7 @@ const Slider = () => {
                 id='gallery'
                 spaceBetween={0}
                 effect={'fade'}
+                loop={true}
                 slidesPerView={1}
                 autoplay={{
                     delay: 2500,

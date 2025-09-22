@@ -16,7 +16,7 @@ const Header = () => {
     return (
         <>
             <div className='bg-[#282828] z-50 h-[32px] flex items-center justify-center text-center'>
-                <Link href={'/contact'}>
+                <Link href={'/'}>
                     <span className='text-white text-[14px] hover:underline'>Miễn phí vận chuyển và lắp đặt tại HN và HCM</span>
                 </Link>
             </div>

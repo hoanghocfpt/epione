@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import ProductImages from '@/components/page-specific/products/ProductImages';
-import data from '@/lib/data'
 import Options from '@/components/page-specific/products/Options';
 import Information from '@/components/page-specific/products/Information';
 import ParentOption from '@/components/page-specific/products/ParentOption';
-const ProductsPage = ({ params, searchParams }) => {
-    const slug = params.slug;
+
+export default async function ProductsPage({ params, searchParams }) {
+
+    const productfetch = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products/handle/${params.handle}`)
+    const product = await productfetch.json();
     const variant = searchParams.variant;
-    const product  = data?.products.find(item => item.handle === slug)
+    console.log(variant, product);
+    
     
     return (
         <div>
@@ -24,4 +27,3 @@ const ProductsPage = ({ params, searchParams }) => {
     );
 };
 
-export default ProductsPage;

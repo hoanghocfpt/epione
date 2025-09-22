@@ -3,28 +3,27 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 const ProductGrid = ({ data, sort_by }) => {
-    const [products, setProducts] = useState(data)
     useEffect(() => {
         if (sort_by === 'az'){
-            products.sort((a, b) => a.title.localeCompare(b.title)) 
+            data.sort((a, b) => a.title.localeCompare(b.title)) 
         } else if (sort_by === 'za'){
-            products.sort((a, b) => b.title.localeCompare(a.title)) 
+            data.sort((a, b) => b.title.localeCompare(a.title)) 
         } else if (sort_by === 'lowest'){
-            products.sort((a, b) => a.variants[0].price - b.variants[0].price)
+            data.sort((a, b) => a.variants[0].price - b.variants[0].price)
         } else if (sort_by === 'highest'){
-            products.sort((a, b) => b.variants[0].price - a.variants[0].price) 
+            data.sort((a, b) => b.variants[0].price - a.variants[0].price) 
         } else if (sort_by === 'date-ascending') {
-            products.sort((a, b) => new Date(a.published_at) - new Date(b.published_at))
+            data.sort((a, b) => new Date(a.published_at) - new Date(b.published_at))
         } else if (sort_by === 'date-descending') {
-            products.sort((a, b) => new Date(b.published_at) - new Date(a.published_at)) 
+            data.sort((a, b) => new Date(b.published_at) - new Date(a.published_at)) 
         } else {
             return
         }
-    }, [sort_by, products])
+    }, [sort_by, data])
     
     return (
         <div className='grid grid-cols-5 mb-8 gap-5'>
-            {products.map((product, index) => (
+            {data.map((product, index) => (
                 <Link key={index} href={`/products/`+ product.handle} className='group rounded-2xl overflow-hidden border-[1px] border-[#e5e5e5]'>
                     <div className='transition-transform aspect-[4/3] relative overflow-hidden'>
                     <img width={500} height={500} className='absolute top-0 duration-500 group-hover:scale-100 opacity-100 group-hover:opacity-0 w-full mb-2 h-full object-cover' src={product.images[0]} alt='chair' />
